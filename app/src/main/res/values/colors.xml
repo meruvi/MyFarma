@@ -3,4 +3,42 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <!--***********COLORES SOLIDOS *********-->
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+
+
+
+
+
+    <!--***********COLORES ZEUS ANTIGUO *********-->
+
+    <!-- <color name="blue_dark">#2f6699</color>-->
+    <color name="blue_dark">#669BC4</color>
+    <!-- <color name="blue_light">#449def</color>-->
+    <!--<color name="blue_light">#DAE3E0</color>-->
+    <color name="blue_light">#78BFE4</color>
+    <color name="green_dark">#53933f</color>
+    <color name="green_light">#70c656</color>
+    <color name="plomo">#CFD2CB</color>
+
+    <color name="shadow_start">#80000000</color>
+    <color name="shadow_end">#00000000</color>
+
+
+    <color name="fondo_registro_cobranza">#EAEAEA</color>
+    <color name="fondo_listado_cobranza">#0066FF</color>
+
+    <color name="orange">#FF9900</color>
+    <color name="green">#009900</color>
+    <color name="blue">#000099</color>
+
+    <color name="amarillo">#D1A319</color>
+    <color name="naranja">#FF9900</color>
+    <color name="celeste">#6666FF</color>
+    <color name="morado">#FF3385</color>
+
+    <color name="orange_cofar">#FF5000</color>
+    <color name="white_2">#BBFFFFFF</color>
 </resources>
