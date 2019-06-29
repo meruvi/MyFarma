@@ -1,9 +1,16 @@
 package com.zeus;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
+
+import com.zeus.android.util.Util;
+import com.zeus.android.version.MainV7;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -15,22 +22,22 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-//        Util.copiarBD(getApplicationContext());
-//
-//        MainV7 mainV7=new MainV7();
-//        mainV7.init(getApplicationContext());
-//
-//        TimerTask task = new TimerTask() {
-//            @Override
-//            public void run() {
-//                Intent mainIntent = new Intent().setClass(SplashScreenActivity.this, LoginActivity.class);
-//                startActivity(mainIntent);
-//                finish();
-//            }
-//        };
-//
-//        // Simulate a long loading process on application startup.
-//        Timer timer = new Timer();
-//        timer.schedule(task, SPLASH_SCREEN_DELAY);
+        Util.copiarBD(getApplicationContext());
+
+        MainV7 mainV7=new MainV7();
+        mainV7.init(getApplicationContext());
+
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                Intent mainIntent = new Intent().setClass(SplashScreenActivity.this, LoginActivity.class);
+                startActivity(mainIntent);
+                finish();
+            }
+        };
+
+        // Simulate a long loading process on application startup.
+        Timer timer = new Timer();
+        timer.schedule(task, SPLASH_SCREEN_DELAY);
     }
 }
