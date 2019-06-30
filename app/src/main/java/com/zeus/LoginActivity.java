@@ -1,5 +1,8 @@
 package com.zeus;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +21,8 @@ import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
+    Context context = LoginActivity.this;
+
     private static final String TAG = LoginActivity.class.getSimpleName();
 
     TextView versionName;
@@ -25,12 +30,15 @@ public class LoginActivity extends AppCompatActivity {
     PersonalController personalController;
     EditText usuarioEdit;
     EditText passwordEdit;
+    Button loginButton;
 
     Map<String, Personal> mapPersonal;
     Intent intent;
 //    Intent intentDespachador;
 //    Intent intentCobrador;
 //    Intent intentMedico;
+
+    private AlertDialog.Builder alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,19 +51,26 @@ public class LoginActivity extends AppCompatActivity {
         Log.i(TAG, "--------------------FIN-----------------");
         usuarioEdit = (EditText) findViewById(R.id.usuarioEdit);
         passwordEdit = (EditText) findViewById(R.id.passwordEdit);
+        loginButton = (Button) findViewById(R.id.loginButton);
         versionName = (TextView) findViewById(R.id.versionName);
         versionName.setText("Version " + Util.getVersionName(getApplicationContext()));
+
+        alertDialog = new AlertDialog.Builder(context)
+                .setTitle("Información")
+                .setMessage("Usuario o contraseña incorrecto")
+                .setCancelable(true)
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
 
         personalController = new PersonalController(this);
         Log.i(TAG, mapPersonal+"" );
         mapPersonal = personalController.getListPersonal();
 
         intent = new Intent(this, MainActivity.class);
-//        intentDespachador = new Intent(this, MainDespachadorDrawerLayout.class);
-//        intentCobrador = new Intent(this, MainCobradorDrawerLayout.class);
-//        intentMedico = new Intent(this, MainMedicoDrawerLayout.class);
 
-        Button loginButton = (Button) findViewById(R.id.loginButton);
         loginButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,50 +78,23 @@ public class LoginActivity extends AppCompatActivity {
                     if (mapPersonal.containsKey(usuarioEdit.getText().toString() + passwordEdit.getText().toString())) {
                         Personal personal = mapPersonal.get(usuarioEdit.getText().toString() + passwordEdit.getText().toString());
                             intent.putExtra("personal", personal);
-//                            intent.putExtra("tipoVista", TipoVista.PROMOTOR.ordinal());
+//                            intent.putExtra("tipoVista", TipoVista.PROMOTOR.ordinal());  //
                             startActivity(intent);
                             finish();
 
-//                        if (personal.getCodCargo() == CargoEmpresa.PROMOTOR_VENTA.codCargo) {
-//                            intent.putExtra("personal", personal);
-//                            intent.putExtra("tipoVista", TipoVista.PROMOTOR.ordinal());
-//                            startActivity(intent);
-//                            finish();
-//                        } else if (personal.getCodCargo() == CargoEmpresa.DESPACHADOR.codCargo) {
-//                            intentDespachador.putExtra("personal", personal);
-//                            intent.putExtra("tipoVista", TipoVista.DESPACHADOR.ordinal());
-//                            startActivity(intentDespachador);
-//                            finish();
-//                        } else if (personal.getCodCargo() == CargoEmpresa.COBRADOR.codCargo) {
-//                            intentCobrador.putExtra("personal", personal);
-//                            intent.putExtra("tipoVista", TipoVista.COBRADOR.ordinal());
-//                            Toast.makeText(getApplicationContext(), "SI", Toast.LENGTH_LONG).show();
-//                            Log.i(TAG, personal.getCodPersonal() + "");
-//                            startActivity(intentCobrador);
-//                            finish();
-//                        } else if (personal.getNombreUsuario().equals(getMD5(usuarioEdit.getText().toString())) && personal.getContraseniaUsuario().equals(getMD5(passwordEdit.getText().toString())) && personal.getCodPersonal() == 1081) {
-//                            intent.putExtra("personal", personal);
-//                            intent.putExtra("tipoVista", TipoVista.PROMOTOR.ordinal());
-//                            startActivity(intent);
-//                            finish();
-//                        } else if (personal.getCodCargo() == CargoEmpresa.VISITADOR.codCargo || personal.getCodCargo() == CargoEmpresa.VISITADOR_FARMACIAS.codCargo) {
-//                            intentMedico.putExtra("personal", personal);
-//                            Log.i(TAG, personal.getCodPersonal() + "");
-//                            intent.putExtra("tipoVista", TipoVista.VISITADOR.ordinal());
-//                            startActivity(intentMedico);
-//                            finish();
-//                        }
                     } else {
-//                        FragmentManager fragmentManager = getSupportFragmentManager();
-//                        DialogoAlerta dialogo = new DialogoAlerta("Usuario o Password Incorrectos.");
-//                        dialogo.show(fragmentManager, "tagAlerta");
+                        alertDialog.show();
                     }
                 } else {
-//                    FragmentManager fragmentManager = getSupportFragmentManager();
-//                    DialogoAlerta dialogo = new DialogoAlerta("Usuario o Password Incorrectos..");
-//                    dialogo.show(fragmentManager, "tagAlerta");
+                    alertDialog.show();
                 }
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        mapPersonal = personalController.getListPersonal();
+        super.onStart();
     }
 }
