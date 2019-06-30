@@ -45,6 +45,7 @@
                 android:text="Usuario"/>
 
             <EditText
+                android:id="@+id/usuarioEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/border_ui"
@@ -59,12 +60,14 @@
                 android:text="Contraseña"/>
 
             <EditText
+                android:id="@+id/passwordEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/border_ui"
                 android:hint="Contraseña"/>
 
             <Button
+                android:id="@+id/loginButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_border"
@@ -72,6 +75,7 @@
                 android:text="Iniciar Sesión"/>
 
             <TextView
+                android:id="@+id/versionName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/space_border"

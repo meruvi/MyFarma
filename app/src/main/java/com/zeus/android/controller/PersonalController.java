@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.zeus.android.entity.Personal;
 import com.zeus.android.util.Util;
 
 import java.text.SimpleDateFormat;
@@ -274,60 +275,60 @@ public class PersonalController extends SQLiteOpenHelper {
 //
 //    }
 //
-//    public Map<String,Personal> getListPersonal() {
-//
-//
-//
-//        Map<String,Personal>   listado=new HashMap<String,Personal>();
-//
-//        String selectQuery = "select cod_cargo,NOMBRE_USUARIO,CONTRASENA_USUARIO,cod_personal,NOMBRES_PERSONAL,AP_PATERNO_PERSONAL,AP_MATERNO_PERSONAL,cod_area_empresa from personal";
-//        Log.i("INFO", selectQuery);
-//        SQLiteDatabase db = this.getReadableDatabase();
-//
-//        Cursor c = db.rawQuery(selectQuery, null);
-//        if (c.moveToFirst()) {
-//            do {
-//
-//                Personal personal=new Personal();
-//                personal.setNombreUsuario( c.getString(   c.getColumnIndex("NOMBRE_USUARIO")  )  );
-//                personal.setContraseniaUsuario( c.getString(   c.getColumnIndex("CONTRASENA_USUARIO")  )  );
-//                personal.setCodPersonal( c.getInt(   c.getColumnIndex("cod_personal")  )  );
-//                personal.setNombresPersonal( c.getString(   c.getColumnIndex("NOMBRES_PERSONAL")  )  );
-//
-//                personal.setApPaternoPersonal( c.getString(   c.getColumnIndex("AP_PATERNO_PERSONAL")  )  );
-//                personal.setApMaternoPersonal( c.getString(   c.getColumnIndex("AP_MATERNO_PERSONAL")  )  );
-//
-//                personal.setCodAreaEmpresa( c.getInt(   c.getColumnIndex("cod_area_empresa")  )  );
-//                personal.setCodCargo( c.getInt(   c.getColumnIndex("cod_cargo")  )  );
-//
-//                listado.put(  personal.getNombreUsuario()+personal.getContraseniaUsuario() , personal);
-//                //getNombreUsuario getContraseniaUsuario
-//
-//
-//            } while (c.moveToNext());
-//        }
-//        c.close();
-//        db.close();
-//
-//        Personal p=new Personal();
-//
-//        p.setNombresPersonal("Administrador");
-//        p.setApMaternoPersonal("");
-//        p.setApPaternoPersonal("");
-//        p.setCodAreaEmpresa(1);
-//        p.setCodPersonal(1081);
-//        //getNombreUsuario getContraseniaUsuario
-//        p.setNombreUsuario("21232f297a57a5a743894a0e4a801fc3");
-//        p.setContraseniaUsuario("098ef03a15eaf14dfe66a596cf0eb510");
-//
-//
-//        listado.put("adminzeus" , p);
-//
-//
-//
-//        Log.i("CANTIDAD PERSONAL", String.valueOf( listado.size()));
-//        return listado;
-//    }
+    public Map<String,Personal> getListPersonal() {
+
+
+
+        Map<String,Personal>   listado=new HashMap<String,Personal>();
+
+        String selectQuery = "select cod_cargo,NOMBRE_USUARIO,CONTRASENA_USUARIO,cod_personal,NOMBRES_PERSONAL,AP_PATERNO_PERSONAL,AP_MATERNO_PERSONAL,cod_area_empresa from personal";
+        Log.i("INFO", selectQuery);
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.rawQuery(selectQuery, null);
+        if (c.moveToFirst()) {
+            do {
+
+                Personal personal=new Personal();
+                personal.setNombreUsuario( c.getString(   c.getColumnIndex("NOMBRE_USUARIO")  )  );
+                personal.setContraseniaUsuario( c.getString(   c.getColumnIndex("CONTRASENA_USUARIO")  )  );
+                personal.setCodPersonal( c.getInt(   c.getColumnIndex("cod_personal")  )  );
+                personal.setNombresPersonal( c.getString(   c.getColumnIndex("NOMBRES_PERSONAL")  )  );
+
+                personal.setApPaternoPersonal( c.getString(   c.getColumnIndex("AP_PATERNO_PERSONAL")  )  );
+                personal.setApMaternoPersonal( c.getString(   c.getColumnIndex("AP_MATERNO_PERSONAL")  )  );
+
+                personal.setCodAreaEmpresa( c.getInt(   c.getColumnIndex("cod_area_empresa")  )  );
+                personal.setCodCargo( c.getInt(   c.getColumnIndex("cod_cargo")  )  );
+
+                listado.put(  personal.getNombreUsuario()+personal.getContraseniaUsuario() , personal);
+                //getNombreUsuario getContraseniaUsuario
+
+
+            } while (c.moveToNext());
+        }
+        c.close();
+        db.close();
+
+        Personal p=new Personal();
+
+        p.setNombresPersonal("Administrador");
+        p.setApMaternoPersonal("");
+        p.setApPaternoPersonal("");
+        p.setCodAreaEmpresa(1);
+        p.setCodPersonal(1081);
+        //getNombreUsuario getContraseniaUsuario
+        p.setNombreUsuario("21232f297a57a5a743894a0e4a801fc3");
+        p.setContraseniaUsuario("098ef03a15eaf14dfe66a596cf0eb510");
+
+
+        listado.put("adminzeus" , p);
+
+
+
+        Log.i("CANTIDAD PERSONAL", String.valueOf( listado.size()));
+        return listado;
+    }
 //
 //    public Personal getPesonal(int codPersonal) {
 //
