@@ -318,8 +318,8 @@ public class PersonalController extends SQLiteOpenHelper {
         p.setCodAreaEmpresa(1);
         p.setCodPersonal(1081);
         //getNombreUsuario getContraseniaUsuario
-        p.setNombreUsuario("21232f297a57a5a743894a0e4a801fc3");
-        p.setContraseniaUsuario("098ef03a15eaf14dfe66a596cf0eb510");
+        p.setNombreUsuario("admin");
+        p.setContraseniaUsuario("zeus");
 
 
         listado.put("adminzeus" , p);
