@@ -7,31 +7,39 @@
         <item
             android:id="@+id/nav_pedidos"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Pedidos" />
+            android:title="Pedidos"/>
         <item
-            android:id="@+id/nav_cuentas_cobrar"
+            android:id="@+id/nav_cuentasPorCobrar"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Cuentas x Cobrar" />
+            android:title="Cuentas por Cobrar"/>
         <item
-            android:id="@+id/nav_clientes"
+            android:id="@+id/nav_georefClientes"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Georeferenciación Clientes" />
+            android:title="Georeferenciación Clientes"/>
+        <item
+            android:id="@+id/nav_georefMedicos"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Georeferenciación Médicos"/>
         <item
             android:id="@+id/nav_cobranzas"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Cobranzas" />
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Cobranzas"/>
+        <item
+            android:id="@+id/nav_boletaVisita"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Boleta Visita"/>
         <item
             android:id="@+id/nav_visitas"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Visitas" />
+            android:title="Visitas"/>
         <item
-            android:id="@+id/nav_dashboard"
+            android:id="@+id/nav_presupuesto"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Presupuesto" />
+            android:title="Presupuesto"/>
         <item
-            android:id="@+id/nav_entrega_pedidos"
+            android:id="@+id/nav_entregaDePedidos"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Entrega de Pedidos" />
+            android:title="Entrega de Pedidos"/>
         <item
             android:id="@+id/nav_ajustes"
             android:icon="@drawable/ic_menu_manage"
